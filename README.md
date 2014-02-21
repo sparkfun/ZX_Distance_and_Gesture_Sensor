@@ -1,4 +1,4 @@
-ZX_Distance_and_Gesture_Sensor
+ZX_Distance_and Gesture_Sensor
 ==============================
 
-XYZ Interactive Technologies, Inc. infrared ZX distance and gesture sensor
+Infrared ZX distance and gesture sensor based on a collaboration with[XYZ Interactive Technologies, Inc.](http://www.gesturesense.com/xyz/).
