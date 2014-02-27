@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -22106,6 +22106,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <package name="PAD.03X.05">
 <smd name="P$1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
 </package>
+<package name="PAD.03X.04">
+<smd name="P$1" x="0" y="0" dx="1.016" dy="1.016" layer="1" roundness="100" cream="no"/>
+</package>
 </packages>
 <symbols>
 <symbol name="SJ_2">
@@ -22305,6 +22308,14 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <technology name=""/>
 </technologies>
 </device>
+<device name="3X4" package="PAD.03X.04">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 </devicesets>
@@ -22447,11 +22458,11 @@ This is the mechanical footprint for a #4 phillips button head screw. Use the ke
 <part name="LOGO2" library="SparkFun-Aesthetics" deviceset="OSHW-LOGO" device="S"/>
 <part name="STANDOFF1" library="SparkFun-Electromechanical" deviceset="STAND-OFF" device=""/>
 <part name="STANDOFF2" library="SparkFun-Electromechanical" deviceset="STAND-OFF" device=""/>
-<part name="TP1" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X5"/>
-<part name="TP2" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X5"/>
-<part name="TP3" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X5"/>
-<part name="TP4" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X5"/>
-<part name="TP5" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X5"/>
+<part name="TP1" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="TP2" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="TP3" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="TP4" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="TP5" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
 </parts>
 <sheets>
 <sheet>
@@ -22892,7 +22903,7 @@ Closed: 0x22</text>
 <label x="223.52" y="170.18" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="ICSPDAT" class="0">
+<net name="ICSPDAT/DACOUT" class="0">
 <segment>
 <wire x1="114.3" y1="160.02" x2="116.84" y2="160.02" width="0.1524" layer="91"/>
 <label x="116.84" y="160.02" size="1.27" layer="95" xref="yes"/>
@@ -22902,6 +22913,11 @@ Closed: 0x22</text>
 <pinref part="U$1" gate="G$1" pin="RA0/ICSPDAT"/>
 <wire x1="185.42" y1="170.18" x2="182.88" y2="170.18" width="0.1524" layer="91"/>
 <label x="182.88" y="170.18" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="38.1" y1="66.04" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
+<label x="35.56" y="66.04" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="ICSPCLK/DATA_RDY" class="0">
@@ -22948,13 +22964,6 @@ Closed: 0x22</text>
 <wire x1="71.12" y1="55.88" x2="68.58" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="55.88" x2="68.58" y2="66.04" width="0.1524" layer="91"/>
 <junction x="68.58" y="66.04"/>
-</segment>
-</net>
-<net name="DACOUT" class="0">
-<segment>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="66.04" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
-<label x="35.56" y="66.04" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="COMMON" class="0">
