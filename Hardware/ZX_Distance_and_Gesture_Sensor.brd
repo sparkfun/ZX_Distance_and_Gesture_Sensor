@@ -169,6 +169,7 @@ Cl: 0x22</text>
 <text x="20.066" y="0" size="1.27" layer="22" font="vector" ratio="15" rot="MR90" align="bottom-center">ZX Sensor</text>
 <text x="10.922" y="5.334" size="1.2192" layer="16" font="vector" ratio="15" rot="MR180" align="center">v01</text>
 <text x="2.286" y="-3.81" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">I2C Pullups</text>
+<dimension x1="11.43" y1="-8.89" x2="23.9776" y2="6.5024" x3="43.4086" y3="-1.1938" textsize="1.778" textratio="15" layer="51" dtype="vertical" unit="inch"/>
 </plain>
 <libraries>
 <library name="SparkFun-Aesthetics">
