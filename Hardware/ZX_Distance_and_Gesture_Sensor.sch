@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -18695,7 +18695,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </connects>
 <technologies>
 <technology name="">
-<attribute name="PROD_ID" value="IC-11991" constant="no"/>
+<attribute name="PROD_ID" value="IC-11991"/>
 </technology>
 </technologies>
 </device>
@@ -19326,7 +19326,7 @@ MMBT5088LT1G - TRANS-11160 (SOT-23, 50 mA 30V)&lt;br&gt;</description>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="PROD_ID" value="TRANS-11993" constant="no"/>
+<attribute name="PROD_ID" value="TRANS-11993"/>
 </technology>
 </technologies>
 </device>
@@ -19413,7 +19413,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-3" y1="1.2" x2="3" y2="1.2" width="0.2032" layer="21"/>
 <wire x1="-3" y1="8.18" x2="-3" y2="1.23" width="0.2032" layer="21"/>
 <wire x1="3" y1="8.18" x2="3" y2="1.23" width="0.2032" layer="21"/>
-<circle x="0" y="5.48" radius="2.5" width="0.2032" layer="21"/>
+<wire x1="2.34923125" y1="4.62495" x2="2.34923125" y2="6.33505" width="0.2032" layer="21" curve="39.999989"/>
+<wire x1="0.85505" y1="7.82923125" x2="-0.85505" y2="7.82923125" width="0.2032" layer="21" curve="39.999989"/>
+<wire x1="-2.34923125" y1="6.33505" x2="-2.34923125" y2="4.62495" width="0.2032" layer="21" curve="39.999989"/>
+<wire x1="-0.85505" y1="3.13076875" x2="0.85505" y2="3.13076875" width="0.2032" layer="21" curve="39.999989"/>
 </package>
 </packages>
 <symbols>
@@ -22069,6 +22072,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <package name="PAD.03X.04">
 <smd name="P$1" x="0" y="0" dx="1.016" dy="1.016" layer="1" roundness="100" cream="no"/>
 </package>
+<package name="TP_15TH">
+<pad name="P$1" x="0" y="0" drill="0.381" diameter="0.6096" stop="no"/>
+<circle x="0" y="0" radius="0.381" width="0" layer="30"/>
+</package>
 </packages>
 <symbols>
 <symbol name="SJ_2">
@@ -22269,6 +22276,14 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 </technologies>
 </device>
 <device name="3X4" package="PAD.03X.04">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="TP_15TH_THRU" package="TP_15TH">
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 </connects>
