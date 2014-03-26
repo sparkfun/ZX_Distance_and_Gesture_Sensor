@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="dots" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="dots" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -119,7 +119,7 @@
 </layers>
 <board>
 <plain>
-<wire x1="-23.979409375" y1="6.500590625" x2="23.979409375" y2="6.500590625" width="0.254" layer="20"/>
+<wire x1="-24.13" y1="6.35" x2="24.13" y2="6.35" width="0.254" layer="20"/>
 <wire x1="-14.49974375" y1="6.500590625" x2="14.50025625" y2="6.500590625" width="0.254" layer="51"/>
 <wire x1="14.50025625" y1="6.500590625" x2="14.50025625" y2="3.750590625" width="0.254" layer="51"/>
 <wire x1="14.50025625" y1="-3.749409375" x2="14.50025625" y2="-6.499409375" width="0.254" layer="51"/>
@@ -136,34 +136,33 @@
 <wire x1="0" y1="6.5" x2="0" y2="-6.5" width="0.1" layer="51" style="shortdash"/>
 <wire x1="-18.5" y1="0" x2="18.5" y2="0" width="0.1" layer="51" style="shortdash"/>
 <wire x1="-27.94" y1="2.54" x2="-27.94" y2="-2.54" width="0.254" layer="20"/>
-<wire x1="-27.94" y1="2.54" x2="-23.979409375" y2="6.500590625" width="0.254" layer="20"/>
-<wire x1="-27.94" y1="-2.54" x2="-23.979409375" y2="-6.500590625" width="0.254" layer="20"/>
+<wire x1="-27.94" y1="2.54" x2="-24.13" y2="6.35" width="0.254" layer="20"/>
+<wire x1="-27.94" y1="-2.54" x2="-24.13" y2="-6.35" width="0.254" layer="20"/>
 <wire x1="27.94" y1="2.54" x2="27.94" y2="-2.54" width="0.254" layer="20"/>
-<wire x1="27.94" y1="-2.54" x2="23.979409375" y2="-6.500590625" width="0.254" layer="20"/>
-<wire x1="27.94" y1="2.54" x2="23.979409375" y2="6.500590625" width="0.254" layer="20"/>
-<wire x1="-23.979409375" y1="-6.499409375" x2="23.979409375" y2="-6.499409375" width="0.254" layer="20"/>
+<wire x1="27.94" y1="-2.54" x2="24.13" y2="-6.35" width="0.254" layer="20"/>
+<wire x1="27.94" y1="2.54" x2="24.13" y2="6.35" width="0.254" layer="20"/>
+<wire x1="-24.13" y1="-6.35" x2="24.13" y2="-6.35" width="0.254" layer="20"/>
 <dimension x1="-19.05" y1="0" x2="19.05" y2="0" x3="0" y3="15.24" textsize="1.778" textratio="15" layer="51" unit="inch"/>
 <dimension x1="-25.4" y1="0" x2="25.4" y2="0" x3="0" y3="19.05" textsize="1.778" textratio="15" layer="51" unit="inch"/>
 <dimension x1="-27.94" y1="2.54" x2="27.94" y2="2.54" x3="0" y3="24.13" textsize="1.778" textratio="15" layer="51" unit="inch"/>
-<dimension x1="23.979409375" y1="6.500590625" x2="23.979409375" y2="-6.500590625" x3="34.29" y3="0" textsize="1.778" textratio="15" layer="51" unit="inch"/>
-<text x="-7.62" y="-10.414" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">TX</text>
-<text x="-5.08" y="-10.414" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">RX</text>
-<text x="-2.54" y="-10.414" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">VCC</text>
-<text x="0" y="-10.414" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">GND</text>
-<text x="2.54" y="-10.414" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">GND</text>
-<text x="5.08" y="-10.414" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">DR</text>
-<text x="7.62" y="-10.414" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">CL</text>
-<text x="10.16" y="-10.414" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">DA</text>
-<wire x1="-11.176" y1="-9.398" x2="3.81" y2="-9.398" width="0.2032" layer="22"/>
-<wire x1="3.81" y1="-9.398" x2="3.81" y2="-12.192" width="0.2032" layer="22"/>
-<wire x1="3.81" y1="-9.398" x2="11.176" y2="-9.398" width="0.2032" layer="22"/>
-<text x="-3.81" y="-9.144" size="1.27" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">UART</text>
-<text x="7.62" y="-9.144" size="1.27" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">I2C</text>
-<text x="-14.986" y="12.954" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">Op: 0x20
-Cl: 0x22</text>
-<text x="37.846" y="-2.54" size="1.27" layer="22" font="vector" ratio="15" rot="MR90" align="bottom-center">ZX Sensor</text>
+<text x="12.7" y="-10.414" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">TX</text>
+<text x="10.16" y="-10.414" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">RX</text>
+<text x="7.62" y="-10.414" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">VCC</text>
+<text x="5.08" y="-10.414" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">GND</text>
+<text x="2.54" y="-10.414" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">GND</text>
+<text x="0" y="-10.414" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">DR</text>
+<text x="-2.54" y="-10.414" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">CL</text>
+<text x="-5.08" y="-10.414" size="0.8128" layer="21" font="vector" ratio="15" align="bottom-center">DA</text>
+<wire x1="16.256" y1="-9.398" x2="1.27" y2="-9.398" width="0.2032" layer="21"/>
+<wire x1="1.27" y1="-9.398" x2="1.27" y2="-12.192" width="0.2032" layer="21"/>
+<wire x1="1.27" y1="-9.398" x2="-6.096" y2="-9.398" width="0.2032" layer="21"/>
+<text x="8.89" y="-9.144" size="1.27" layer="21" font="vector" ratio="15" align="bottom-center">UART</text>
+<text x="-2.54" y="-9.144" size="1.27" layer="21" font="vector" ratio="15" align="bottom-center">I2C</text>
+<text x="-13.462" y="0.762" size="0.8128" layer="22" font="vector" ratio="15" rot="MR270" align="bottom-center">I2C Addr</text>
+<text x="37.846" y="-2.54" size="1.27" layer="21" font="vector" ratio="15" rot="R90" align="bottom-center">ZX Sensor</text>
 <text x="20.1422" y="-5.5626" size="1.2192" layer="1" font="vector" ratio="15" rot="R180" align="center">v02</text>
-<text x="-6.604" y="12.7" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">I2C Pullups</text>
+<text x="-4.064" y="3.302" size="0.8128" layer="22" font="vector" ratio="15" rot="MR0" align="bottom-center">I2C Pullups</text>
+<dimension x1="24.13" y1="6.35" x2="24.13" y2="-6.35" x3="35.56" y3="0" textsize="1.778" textratio="15" layer="51" unit="inch"/>
 </plain>
 <libraries>
 <library name="SparkFun-Aesthetics">
@@ -2143,7 +2142,7 @@ design rules under a new name.</description>
 <element name="SJ2" library="SparkFun-Passives" package="SJ_2S-NO" value="SOLDERJUMPERNO" x="-15.24" y="3.175" rot="MR0"/>
 <element name="FID1" library="SparkFun-Aesthetics" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="-22.86" y="5.08" rot="MR0"/>
 <element name="FID2" library="SparkFun-Aesthetics" package="FIDUCIAL-1X2" value="FIDUCIAL1X2" x="22.86" y="-5.08" rot="MR0"/>
-<element name="U$5" library="SparkFun-Aesthetics" package="SFE_LOGO_NAME_FLAME_.1" value="SFE_LOGO_NAME_FLAME.1_INCH" x="-39.751" y="-5.842" rot="MR90"/>
+<element name="U$5" library="SparkFun-Aesthetics" package="SFE_LOGO_NAME_FLAME_.1" value="SFE_LOGO_NAME_FLAME.1_INCH" x="-30.861" y="-5.842" rot="R90"/>
 <element name="LOGO1" library="SparkFun-Aesthetics" package="SFE_LOGO_FLAME_.1" value="SFE_LOGO_FLAME.1_INCH" x="-22.225" y="-5.08" rot="MR0"/>
 <element name="LOGO2" library="SparkFun-Aesthetics" package="OSHW-LOGO-S" value="OSHW-LOGOS" x="23.495" y="3.81" rot="MR0"/>
 <element name="STANDOFF1" library="SparkFun-Electromechanical" package="STAND-OFF" value="STAND-OFF" x="-25.4" y="0"/>
@@ -2300,23 +2299,22 @@ design rules under a new name.</description>
 <contactref element="TP2" pad="P$1"/>
 <contactref element="U1" pad="2"/>
 <polygon width="0.254" layer="1" isolate="0.2032">
-<vertex x="-23.9776" y="-6.5024"/>
-<vertex x="23.9776" y="-6.5024"/>
-<vertex x="27.9146" y="-2.5654"/>
+<vertex x="-24.13" y="-6.35"/>
+<vertex x="24.13" y="-6.35"/>
 <vertex x="27.94" y="-2.54"/>
 <vertex x="27.94" y="2.54"/>
-<vertex x="23.9776" y="6.5024"/>
-<vertex x="-23.9776" y="6.5024"/>
+<vertex x="24.13" y="6.35"/>
+<vertex x="-24.13" y="6.35"/>
 <vertex x="-27.94" y="2.54"/>
 <vertex x="-27.94" y="-2.54"/>
 </polygon>
 <polygon width="0.254" layer="16" isolate="0.2032">
-<vertex x="-23.9776" y="-6.5024"/>
-<vertex x="23.9776" y="-6.5024"/>
+<vertex x="-24.13" y="-6.35"/>
+<vertex x="24.13" y="-6.35"/>
 <vertex x="27.94" y="-2.54"/>
 <vertex x="27.94" y="2.54"/>
-<vertex x="23.9776" y="6.5024"/>
-<vertex x="-23.9776" y="6.5024"/>
+<vertex x="24.13" y="6.35"/>
+<vertex x="-24.13" y="6.35"/>
 <vertex x="-27.94" y="2.54"/>
 <vertex x="-27.94" y="-2.54"/>
 </polygon>
@@ -2724,10 +2722,4 @@ design rules under a new name.</description>
 </signals>
 </board>
 </drawing>
-<compatibility>
-<note version="6.3" minversion="6.2.2" severity="warning">
-Since Version 6.2.2 text objects can contain more than one line,
-which will not be processed correctly with this version.
-</note>
-</compatibility>
 </eagle>
