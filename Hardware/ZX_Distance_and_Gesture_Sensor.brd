@@ -6,9 +6,9 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="dots" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="dots" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -16,9 +16,9 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="16" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="16" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="14" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
@@ -34,9 +34,9 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="51" name="tDocu" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="6" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -4724,6 +4724,7 @@ design rules under a new name.</description>
 </element>
 <element name="U$7" library="SparkFun-Sensors" package="TSOP572" value="TSOP57238TT1" x="0" y="0" rot="R180">
 <attribute name="PROD_ID" value="COMP-11990" x="-15.24" y="33.02" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PLACE" value="DNP" x="0" y="0" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="JP1" library="SparkFun-Connectors" package="1X06_NO_SILK" value="" x="-10.16" y="-5.08"/>
 <element name="JP3" library="SparkFun-Connectors" package="1X03_NO_SILK" value="" x="5.08" y="-5.08"/>
@@ -4772,7 +4773,10 @@ design rules under a new name.</description>
 <element name="C6" library="SparkFun-Capacitors" package="0603-CAP" value="10nF" x="20.32" y="-3.81" rot="MR270">
 <attribute name="PROD_ID" value="CAP-00867" x="64.77" y="-48.26" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
-<element name="R9" library="SparkFun-Resistors" package="0603-RES" value="DNP" x="-6.35" y="0" rot="MR180"/>
+<element name="R9" library="SparkFun-Resistors" package="0603-RES" value="1K" x="-6.35" y="0" rot="MR180">
+<attribute name="PROD_ID" value="RES-07856" x="-6.35" y="0" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="VALUE" value="1K" x="-6.35" y="0" size="1.778" layer="28" rot="MR180" display="off"/>
+</element>
 <element name="C7" library="SparkFun-Capacitors" package="0603-CAP" value="4.7uF" x="-6.35" y="2.54" rot="MR0">
 <attribute name="PROD_ID" value="CAP-08280" x="-54.61" y="-41.91" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
@@ -4807,7 +4811,6 @@ design rules under a new name.</description>
 <element name="TP5" library="SparkFun-Passives" package="PAD.03X.04" value="TEST-POINT3X4" x="-7.62" y="5.08" rot="MR0"/>
 <element name="U1" library="SparkFun-Sensors" package="BRM-2508_VERT" value="BRM-2508VERT" x="0" y="5.08" rot="R180">
 <attribute name="PROD_ID" value="COMP-12059" x="0" y="5.08" size="1.778" layer="27" font="vector" ratio="15" rot="R180" display="off"/>
-<attribute name="PLACE" value="DNP" x="0" y="5.08" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="U$6" library="SparkFun-Aesthetics" package="GESTURESENSE_TEXT" value="GESTURESENSE_LOGOSTEXT" x="-15.24" y="-2.54"/>
 </elements>
