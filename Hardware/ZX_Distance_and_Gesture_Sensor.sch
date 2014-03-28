@@ -28462,26 +28462,26 @@ Closed: 0x22</text>
 <nets>
 <net name="UART_TX" class="0">
 <segment>
-<pinref part="JP1" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="152.4" x2="20.32" y2="152.4" width="0.1524" layer="91"/>
-<label x="20.32" y="152.4" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
 <pinref part="U$1" gate="G$1" pin="RC5"/>
 <wire x1="220.98" y1="157.48" x2="223.52" y2="157.48" width="0.1524" layer="91"/>
 <label x="223.52" y="157.48" size="1.27" layer="95" xref="yes"/>
 </segment>
-</net>
-<net name="UART_RX" class="0">
 <segment>
 <pinref part="JP1" gate="G$1" pin="3"/>
 <wire x1="17.78" y1="154.94" x2="20.32" y2="154.94" width="0.1524" layer="91"/>
 <label x="20.32" y="154.94" size="1.27" layer="95" xref="yes"/>
 </segment>
+</net>
+<net name="UART_RX" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="RC4"/>
 <wire x1="220.98" y1="160.02" x2="223.52" y2="160.02" width="0.1524" layer="91"/>
 <label x="223.52" y="160.02" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="152.4" x2="20.32" y2="152.4" width="0.1524" layer="91"/>
+<label x="20.32" y="152.4" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="VCC" class="0">
