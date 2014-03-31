@@ -28210,7 +28210,9 @@ This is the mechanical footprint for a #4 phillips button head screw. Use the ke
 <part name="SUPPLY4" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="GND5" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND6" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="D1" library="SparkFun-LED" deviceset="LED-IR-THRU" device="TSAL6100" value="LED-IR-THRUTSAL6100"/>
+<part name="D1" library="SparkFun-LED" deviceset="LED-IR-THRU" device="TSAL6100" value="LED-IR-THRUTSAL6100">
+<attribute name="VARIANT" value="TSAL6100"/>
+</part>
 <part name="R5" library="SparkFun-Resistors" deviceset="100KOHM1/10W1%(0603)" device="" value="100k"/>
 <part name="R6" library="SparkFun-Resistors" deviceset="1OHM1/10W1%(0603)" device="" value="1"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="0.1UF-25V(+80/-20%)(0603)" device="" value="0.1uF"/>
@@ -28233,7 +28235,9 @@ This is the mechanical footprint for a #4 phillips button head screw. Use the ke
 <part name="C7" library="SparkFun-Capacitors" deviceset="4.7UF-6.3V-10%(0603)" device="0603" value="4.7uF"/>
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
-<part name="D2" library="SparkFun-LED" deviceset="LED-IR-THRU" device="TSAL6100" value="LED-IR-THRUTSAL6100"/>
+<part name="D2" library="SparkFun-LED" deviceset="LED-IR-THRU" device="TSAL6100" value="LED-IR-THRUTSAL6100">
+<attribute name="VARIANT" value="TSAL6100"/>
+</part>
 <part name="SUPPLY12" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="GND12" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND13" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -28351,8 +28355,8 @@ Closed: 0x22</text>
 <instance part="GND5" gate="1" x="38.1" y="30.48"/>
 <instance part="GND6" gate="1" x="91.44" y="5.08"/>
 <instance part="D1" gate="G$1" x="48.26" y="104.14" smashed="yes">
-<attribute name="NAME" x="50.038" y="103.124" size="1.778" layer="95"/>
-<attribute name="VALUE" x="50.038" y="100.965" size="1.778" layer="96"/>
+<attribute name="NAME" x="50.8" y="104.14" size="1.778" layer="95"/>
+<attribute name="VARIANT" x="50.8" y="101.6" size="1.778" layer="96"/>
 </instance>
 <instance part="R5" gate="G$1" x="43.18" y="129.54"/>
 <instance part="R6" gate="G$1" x="40.64" y="109.22"/>
@@ -28392,8 +28396,8 @@ Closed: 0x22</text>
 <instance part="GND11" gate="1" x="182.88" y="50.8"/>
 <instance part="SUPPLY11" gate="G$1" x="170.18" y="68.58"/>
 <instance part="D2" gate="G$1" x="114.3" y="104.14" smashed="yes">
-<attribute name="NAME" x="116.332" y="103.124" size="1.778" layer="95"/>
-<attribute name="VALUE" x="116.332" y="100.965" size="1.778" layer="96"/>
+<attribute name="NAME" x="116.84" y="104.14" size="1.778" layer="95"/>
+<attribute name="VARIANT" x="116.84" y="101.6" size="1.778" layer="96"/>
 </instance>
 <instance part="SUPPLY12" gate="G$1" x="223.52" y="91.44"/>
 <instance part="GND12" gate="1" x="170.18" y="50.8"/>
