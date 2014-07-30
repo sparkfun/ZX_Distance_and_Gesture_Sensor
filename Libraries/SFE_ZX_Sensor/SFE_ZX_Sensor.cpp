@@ -40,9 +40,10 @@ SFE_ZX_Sensor::~SFE_ZX_Sensor()
 /**
  * @brief Configures I2C communications and checks ZX sensor model number.
  *
+ * @param enable_interrupts enables DR pin to assert on events
  * @return True if initialized successfully. False otherwise.
  */
-bool SFE_ZX_Sensor::init()
+bool SFE_ZX_Sensor::init(InterruptType enable_interrupts /* = NO_INTERRUPTS */)
 {
     uint8_t ver;
     
@@ -65,6 +66,9 @@ bool SFE_ZX_Sensor::init()
         return false;
     }
     
+    /* Enable DR interrupts based on desired interrupts */
+    /***TODO***/
+    
     return true;
 }
 
@@ -86,6 +90,27 @@ bool SFE_ZX_Sensor::positionAvailable()
         return false;
     }
     status &= 0b00000001;
+    if ( status ) {
+        return true;
+    }
+    
+    return false;
+}
+
+/**
+ * @brief Indicates that a gesture is available to be read
+ *
+ * @return True if gesture is ready to be read. False otherwise.
+ */
+bool SFE_ZX_Sensor::gestureAvailable()
+{
+    uint8_t status;
+    
+    /* Read STATUS register and extract SWP bit */
+    if ( !wireReadDataByte(ZX_STATUS, status) ) {
+        return false;
+    }
+    status &= 0b00011100;
     if ( status ) {
         return true;
     }
@@ -133,6 +158,47 @@ uint8_t SFE_ZX_Sensor::readZ()
         return ZX_ERROR;
     }
     return z_pos;
+}
+
+/**
+ * @brief Reads the last detected gesture from the sensor
+ *
+ * 0x01 Right Swipe
+ * 0x02 Left Swipe
+ * 0x03 Up Swipe
+ * 0x05 Hover
+ * 0x06 Hover-Left
+ * 0x07 Hover-Right
+ * 0x08 Hover-Up
+ *
+ * @return a number corresponding to  a gesture. 0xFF on error.
+ */
+GestureType SFE_ZX_Sensor::readGesture()
+{
+    uint8_t gesture;
+    
+    /* Read GESTURE register and return the value */
+    if ( !wireReadDataByte(ZX_GESTURE, gesture) ) {
+        return NO_GESTURE;
+    }
+    switch ( gesture ) {
+        case RIGHT_SWIPE:
+            return RIGHT_SWIPE;
+        case LEFT_SWIPE:
+            return LEFT_SWIPE;
+        case UP_SWIPE:
+            return UP_SWIPE;
+        case HOVER:
+            return HOVER;
+        case HOVER_LEFT:
+            return HOVER_LEFT;
+        case HOVER_RIGHT:
+            return HOVER_RIGHT;
+        case HOVER_UP:
+            return HOVER_UP;
+        default:
+            return NO_GESTURE;
+    }
 }
         
 

@@ -43,6 +43,26 @@
 #define ZX_REGVER           0xFE
 #define ZX_MODEL            0xFF
 
+/* Enumeration for possible gestures */
+typedef enum GestureType {
+    RIGHT_SWIPE = 0x01,
+    LEFT_SWIPE = 0x02,
+    UP_SWIPE = 0x03,
+    HOVER = 0x05,
+    HOVER_LEFT = 0x06,
+    HOVER_RIGHT = 0x07,
+    HOVER_UP = 0x08,
+    NO_GESTURE = 0xFF
+} GestureType;
+
+/* Enumeration for possible interrupt enables */
+typedef enum InterruptType {
+    NO_INTERRUPTS = 0x00,
+    POSITION_INTERRUPTS = 0x01,
+    GESTURE_INTERRUPTS = 0x02,
+    ALL_INTERRUPTS = 0x03
+} InterruptType;
+
 /* Constants */
 #define ZX_ERROR            0xFF
 #define MAX_X               240
@@ -55,17 +75,17 @@ public:
     /* Initialization */
     SFE_ZX_Sensor();
     ~SFE_ZX_Sensor();
-    bool init();
+    bool init(InterruptType enable_interrupts = NO_INTERRUPTS);
     
     /* Data available */
     bool positionAvailable();
-    bool swipeAvailable();
-    bool hoverAvailable();
-    bool hoverMoveAvailable();
+    bool gestureAvailable();
     
     /* Sensor data read */
     uint8_t readX();
     uint8_t readZ();
+    GestureType readGesture();
+    uint8_t readGestureSpeed();
     
 private:
 
