@@ -24,9 +24,9 @@
 /**
  * @brief Constructor - Instantiates SFE_ZX_Sensor object
  */
-SFE_ZX_Sensor::SFE_ZX_Sensor()
+SFE_ZX_Sensor::SFE_ZX_Sensor(int address)
 {
-
+    addr_ = address;
 }
 
 /**
@@ -43,12 +43,21 @@ SFE_ZX_Sensor::~SFE_ZX_Sensor()
  * @param enable_interrupts enables DR pin to assert on events
  * @return True if initialized successfully. False otherwise.
  */
-bool SFE_ZX_Sensor::init(InterruptType enable_interrupts /* = NO_INTERRUPTS */)
+bool SFE_ZX_Sensor::init(   InterruptType interrupts /* = NO_INTERRUPTS */,
+                            bool active_high /* = true */)
 {
     uint8_t ver;
     
     /* Initialize I2C */
     Wire.begin();
+    
+    /***TEST***/
+    uint8_t val;
+    if ( !wireReadDataByte(ZX_DRCFG, val) ) {
+        return false;
+    }
+    Serial.print("DRCFG: 0x");
+    Serial.println(val, HEX);
     
     /* Read Model ID and check against known values for the ZX Sensor */
     if ( !wireReadDataByte(ZX_MODEL, ver) ) {
@@ -67,7 +76,144 @@ bool SFE_ZX_Sensor::init(InterruptType enable_interrupts /* = NO_INTERRUPTS */)
     }
     
     /* Enable DR interrupts based on desired interrupts */
-    /***TODO***/
+    setInterruptTrigger(interrupts);
+    configureInterrupts(active_high, false);
+    if ( interrupts == NO_INTERRUPTS ) {
+        disableInterrupts();
+    } else {
+        enableInterrupts();
+    }
+    
+    /***TEST***/
+    uint8_t val2;
+    if ( !wireReadDataByte(ZX_DRCFG, val2) ) {
+        return false;
+    }
+    Serial.print("DRCFG: 0x");
+    Serial.println(val, HEX);
+    
+    return true;
+}
+
+/*******************************************************************************
+ * Interrupt Configuration
+ ******************************************************************************/
+
+ /**
+  * @brief Sets the triggers that cause the DR pin to change
+  *
+  * @param[in] interrupts which types of interrupts to enable
+  * @return True if operation successful. False otherwise.
+  */
+bool SFE_ZX_Sensor::setInterruptTrigger(InterruptType interrupts)
+{
+    switch ( interrupts ) {
+        case POSITION_INTERRUPTS:
+            if ( !setRegisterBit(ZX_DRE, DRE_CRD) ) {
+                return false;
+            }
+            break;
+        case GESTURE_INTERRUPTS:
+            if ( !setRegisterBit(ZX_DRE, DRE_SWP) ) {
+                return false;
+            }
+            if ( !setRegisterBit(ZX_DRE, DRE_HOVER) ) {
+                return false;
+            }
+            if ( !setRegisterBit(ZX_DRE, DRE_HVG) ) {
+                return false;
+            }
+            break;
+        case ALL_INTERRUPTS:
+            if ( !wireWriteDataByte(ZX_DRE, SET_ALL_DRE) ) {
+                return false;
+            }
+            break;
+        default:
+            if ( !wireWriteDataByte(ZX_DRE, 0x00) ) {
+                return false;
+            }
+            break;
+    }
+    
+    return true;
+}
+
+/**
+ * @brief Configured the behavior of the DR pin on an interrupt
+ *
+ * @param[in] active_high true for DR active-high. False for active-low.
+ * @param[in] pin_pulse true: DR pulse. False: DR pin asserts until STATUS read
+ * @return True if operation successful. False otherwise.
+ */
+bool SFE_ZX_Sensor::configureInterrupts(    bool active_high, 
+                                            bool pin_pulse /* = false */)
+{
+    /* Set or clear polarity bit to make DR active-high or active-low */
+    if ( active_high ) {
+        if ( !setRegisterBit(ZX_DRCFG, DRCFG_POLARITY) ) {
+            return false;
+        }
+    } else {
+        if ( !clearRegisterBit(ZX_DRCFG, DRCFG_POLARITY) ) {
+            return false;
+        }
+    }
+    
+    /* Set or clear edge bit to make DR pulse or remain set until STATUS read */
+    if ( pin_pulse ) {
+        if ( !setRegisterBit(ZX_DRCFG, DRCFG_EDGE) ) {
+            return false;
+        }
+    } else {
+        if ( !clearRegisterBit(ZX_DRCFG, DRCFG_EDGE) ) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+/**
+ * @brief Turns on interrupts so that DR asserts on desired events.
+ *
+ * @return True if operation successful. False otherwise.
+ */
+bool SFE_ZX_Sensor::enableInterrupts()
+{
+    if ( !setRegisterBit(ZX_DRCFG, DRCFG_EN) ) {
+        return false;
+    }
+    
+    return true;
+}
+
+/**
+ * @brief Turns off interrupts so that DR will never assert.
+ *
+ * @return True if operation successful. False otherwise.
+ */
+bool SFE_ZX_Sensor::disableInterrupts()
+{
+    if ( !clearRegisterBit(ZX_DRCFG, DRCFG_EN) ) {
+        return false;
+    }
+    
+    return true;
+}
+
+/**
+ * @brief Reads the STATUS register to clear an interrupt (de-assert DR)
+ *
+ * @return True if operation successful. False otherwise.
+ */
+bool SFE_ZX_Sensor::clearInterrupt()
+{
+    uint8_t val;
+    
+    if ( !wireReadDataByte(ZX_STATUS, val) ) {
+        return false;
+    }
     
     return true;
 }
@@ -200,7 +346,58 @@ GestureType SFE_ZX_Sensor::readGesture()
             return NO_GESTURE;
     }
 }
-        
+
+/*******************************************************************************
+ * Bit Manipulation
+ ******************************************************************************/
+ 
+/**
+ * @brief sets a bit in a register over I2C
+ *
+ * @param[in] bit the number of the bit (0-7) to set
+ * @return True if successful write operation. False otherwise.
+ */
+bool SFE_ZX_Sensor::setRegisterBit(uint8_t reg, uint8_t bit)
+{
+    uint8_t val;
+    
+    /* Read value from register */
+    if ( !wireReadDataByte(reg, val) ) {
+        return false;
+    }
+    
+    /* Set bits in register and write back to the register */
+    val |= (1 << bit);
+    if ( !wireWriteDataByte(reg, val) ) {
+        return false;
+    }
+    
+    return true;    
+}
+
+/**
+ * @brief clears a bit in a register over I2C
+ *
+ * @param[in] bit the number of the bit (0-7) to clear
+ * @return True if successful write operation. False otherwise.
+ */
+bool SFE_ZX_Sensor::clearRegisterBit(uint8_t reg, uint8_t bit)
+{
+    uint8_t val;
+    
+    /* Read value from register */
+    if ( !wireReadDataByte(reg, val) ) {
+        return false;
+    }
+    
+    /* Clear bit in register and write back to the register */
+    val &= ~(1 << bit);
+    if ( !wireWriteDataByte(reg, val) ) {
+        return false;
+    }
+    
+    return true;    
+} 
 
 /*******************************************************************************
  * Raw I2C Reads and Writes
@@ -214,7 +411,7 @@ GestureType SFE_ZX_Sensor::readGesture()
  */
 bool SFE_ZX_Sensor::wireWriteByte(uint8_t val)
 {
-    Wire.beginTransmission(ZX_ADDR);
+    Wire.beginTransmission(addr_);
     Wire.write(val);
     if( Wire.endTransmission() != 0 ) {
         return false;
@@ -232,7 +429,7 @@ bool SFE_ZX_Sensor::wireWriteByte(uint8_t val)
  */
 bool SFE_ZX_Sensor::wireWriteDataByte(uint8_t reg, uint8_t val)
 {
-    Wire.beginTransmission(ZX_ADDR);
+    Wire.beginTransmission(addr_);
     Wire.write(reg);
     Wire.write(val);
     if( Wire.endTransmission() != 0 ) {
@@ -258,7 +455,7 @@ bool SFE_ZX_Sensor::wireReadDataByte(uint8_t reg, uint8_t &val)
     }
     
     /* Read from register */
-    Wire.requestFrom(ZX_ADDR, 1);
+    Wire.requestFrom(addr_, 1);
     while (Wire.available()) {
         val = Wire.read();
     }

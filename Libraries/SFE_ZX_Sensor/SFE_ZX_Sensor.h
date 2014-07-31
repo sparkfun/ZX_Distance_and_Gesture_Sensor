@@ -20,9 +20,6 @@
 /* Debug */
 #define DEBUG               1
 
-/* ZX Sensor I2C address */
-#define ZX_ADDR             0x10
-
 /* Acceptable ZX Sensor version */
 #define ZX_MODEL_VER        0x00
 
@@ -42,6 +39,24 @@
 #define ZX_RRNG             0x0E
 #define ZX_REGVER           0xFE
 #define ZX_MODEL            0xFF
+
+/* ZX Sensor bit names */
+#define DRE_RNG             0
+#define DRE_CRD             1
+#define DRE_SWP             2
+#define DRE_HOVER           3
+#define DRE_HVG             4
+#define DRE_EDGE            5
+#define DRCFG_POLARITY      0
+#define DRCFG_EDGE          1
+#define DRCFG_FORCE         6
+#define DRCFG_EN            7
+
+/* Constants */
+#define ZX_ERROR            0xFF
+#define MAX_X               240
+#define MAX_Z               240
+#define SET_ALL_DRE         0b00111111
 
 /* Enumeration for possible gestures */
 typedef enum GestureType {
@@ -63,19 +78,22 @@ typedef enum InterruptType {
     ALL_INTERRUPTS = 0x03
 } InterruptType;
 
-/* Constants */
-#define ZX_ERROR            0xFF
-#define MAX_X               240
-#define MAX_Z               240
-
 /* ZX Sensor Class */
 class SFE_ZX_Sensor {
 public:
 
     /* Initialization */
-    SFE_ZX_Sensor();
+    SFE_ZX_Sensor(int address);
     ~SFE_ZX_Sensor();
-    bool init(InterruptType enable_interrupts = NO_INTERRUPTS);
+    bool init(  InterruptType interrupts = NO_INTERRUPTS, 
+                bool active_high = true);
+    
+    /* Interrupt configuration */
+    bool setInterruptTrigger(InterruptType interrupts);
+    bool configureInterrupts(bool active_high, bool pin_pulse = false);
+    bool enableInterrupts();
+    bool disableInterrupts();
+    bool clearInterrupt();
     
     /* Data available */
     bool positionAvailable();
@@ -89,10 +107,17 @@ public:
     
 private:
 
+    /* Bit manipulation */
+    bool setRegisterBit(uint8_t reg, uint8_t bit);
+    bool clearRegisterBit(uint8_t reg, uint8_t bit);
+
     /* Raw I2C reads and writes */
     bool wireWriteByte(uint8_t val);
     bool wireWriteDataByte(uint8_t reg, uint8_t val);
     bool wireReadDataByte(uint8_t reg, uint8_t &val);
+    
+    /* Members */
+    int addr_;
 };
 
 #endif

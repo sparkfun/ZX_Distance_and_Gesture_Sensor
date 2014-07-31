@@ -22,7 +22,7 @@ Include Wire.h and SFE_ZX_Sensor.h
 
 Development environment specifics:
 Written in Arduino 1.0.5
-Tested with SparkFun Arduino Pro Mini 5V
+Tested with an Arduino UNO R3
 
 This code is beerware; if you see me (or any other SparkFun 
 employee) at the local, and you've found our code helpful, please
@@ -34,8 +34,11 @@ Distributed as-is; no warranty is given.
 #include <Wire.h>
 #include <SFE_ZX_Sensor.h>
 
+// Constants
+#define ZX_ADDR        0x10    // ZX Sensor I2C address
+
 // Global Variables
-SFE_ZX_Sensor zx_sensor = SFE_ZX_Sensor();
+SFE_ZX_Sensor zx_sensor = SFE_ZX_Sensor(ZX_ADDR);
 GestureType gesture;
 
 void setup() {

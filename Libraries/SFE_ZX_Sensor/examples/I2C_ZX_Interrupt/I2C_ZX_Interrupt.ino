@@ -1,13 +1,13 @@
 /****************************************************************
-I2C_Gesture_Interrupt.ino
+I2C_ZX_Interrupt.ino
 XYZ Interactive ZX Sensor
 Shawn Hymel @ SparkFun Electronics
-July 30, 2014
+July 31, 2014
 https://github.com/sparkfun/APDS-9960_RGB_and_Gesture_Sensor
 
-Tests the ZX sensor's ability to read gesture data over I2C using 
-an interrupt pin. This program configures I2C and sets up an
-interrupt to occur whenever the ZX Sensor throws its DR pin high.
+Tests the ZX sensor's ability to read ZX data over I2C using an
+interrupt pin. This program configures I2C and sets up an
+interrupt to occur whenever the ZX sensor throws its DR pin high.
 
 Hardware Connections:
  
@@ -42,16 +42,17 @@ Distributed as-is; no warranty is given.
 
 // Global Variables
 SFE_ZX_Sensor zx_sensor = SFE_ZX_Sensor(ZX_ADDR);
-GestureType gesture;
+uint8_t x_pos;
+uint8_t z_pos;
 
 void setup() {
 
   // Initialize Serial port
   Serial.begin(115200);
   Serial.println();
-  Serial.println("---------------------------------------------");
-  Serial.println("SparkFun/GestureSense - I2C Gesture Interrupt");
-  Serial.println("---------------------------------------------");
+  Serial.println("----------------------------------------");
+  Serial.println("SparkFun/GestureSense - I2C ZX Interrupt");
+  Serial.println("----------------------------------------");
   
   // Initialize interrupt service routine
   attachInterrupt(INTERRUPT_NUM, interruptRoutine, RISING);
@@ -75,31 +76,15 @@ void interruptRoutine() {
   // You MUST read the STATUS register to clear interrupt!
   zx_sensor.clearInterrupt();
   
-  // Read last gesture
-  gesture = zx_sensor.readGesture();
-  switch ( gesture ) {
-    case RIGHT_SWIPE:
-      Serial.println("Right Swipe");
-      break;
-    case LEFT_SWIPE:
-      Serial.println("Left Swipe");
-      break;
-    case UP_SWIPE:
-      Serial.println("Up Swipe");
-      break;
-    case HOVER:
-      Serial.println("Hover");
-      break;
-    case HOVER_LEFT:
-      Serial.println("Hover-Left");
-      break;
-    case HOVER_RIGHT:
-      Serial.println("Hover-Right");
-      break;
-    case HOVER_UP:
-      Serial.println("Hover-Up");
-      break;
-    default:
-      break;
+  // Read last X and Z coordinates
+  x_pos = zx_sensor.readX();
+  if ( x_pos != ZX_ERROR ) {
+    Serial.print("X: ");
+    Serial.print(x_pos);
+  }
+  z_pos = zx_sensor.readZ();
+  if ( z_pos != ZX_ERROR ) {
+    Serial.print(" Z: ");
+    Serial.println(z_pos);
   }
 }
