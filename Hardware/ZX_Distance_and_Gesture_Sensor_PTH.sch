@@ -29286,7 +29286,7 @@ This is the mechanical footprint for a #4 phillips button head screw. Use the ke
 <parts>
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device="">
 <attribute name="DESIGNER" value="Shawn Hymel"/>
-<attribute name="VERSION" value="v05"/>
+<attribute name="VERSION" value="v10"/>
 </part>
 <part name="U1" library="SparkFun-DigitalIC" deviceset="PIC16F1823-14PIN" device="TSSOP"/>
 <part name="U2" library="SparkFun-AnalogIC" deviceset="MCP6021" device="T-E/OT"/>
@@ -29413,6 +29413,7 @@ Closed: 0x22</text>
 <text x="7.62" y="149.86" size="1.778" layer="97" align="center-right">NC</text>
 <text x="59.69" y="104.902" size="1.778" layer="97">DNP</text>
 <text x="125.73" y="104.902" size="1.778" layer="97">DNP</text>
+<text x="7.62" y="177.8" size="1.778" layer="97">NOTE: VCC must be 3.3V - 5V</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
