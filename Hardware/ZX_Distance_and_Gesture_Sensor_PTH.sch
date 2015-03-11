@@ -25740,7 +25740,10 @@ Closed: 0x22 (Arduino: 0x11)</text>
 <text x="7.62" y="177.8" size="1.778" layer="97">NOTE: VCC must be 3.3V - 5V</text>
 </plain>
 <instances>
-<instance part="FRAME1" gate="G$1" x="0" y="0"/>
+<instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes">
+<attribute name="DESIGNER" x="173.482" y="11.43" size="2.54" layer="94"/>
+<attribute name="VERSION" x="238.76" y="7.62" size="2.54" layer="94"/>
+</instance>
 <instance part="FRAME1" gate="V" x="147.32" y="0"/>
 <instance part="U1" gate="G$1" x="203.2" y="165.1" smashed="yes">
 <attribute name="NAME" x="187.96" y="176.022" size="1.778" layer="95"/>
