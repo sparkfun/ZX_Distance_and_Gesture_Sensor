@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -6258,6 +6258,9 @@ design rules under a new name.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -10172,6 +10175,9 @@ design rules under a new name.</description>
 <element name="E$2" library="SparkFun-Aesthetics" package="FIDUCIAL-1X2" value="" x="127.635" y="11.938"/>
 <element name="E$5" library="SparkFun-Aesthetics" package="FIDUCIAL-1X2" value="" x="127.635" y="132.588" rot="R180"/>
 <element name="E$1" library="SparkFun-Retired" package="FIDUCIAL-1.5X3" value="" x="4.572" y="13.208"/>
+<element name="E$3" library="SparkFun-Retired" package="FIDUCIAL-1.5X3" value="" x="4.572" y="13.208" rot="MR0"/>
+<element name="E$4" library="SparkFun-Aesthetics" package="FIDUCIAL-1X2" value="" x="127.635" y="11.938" rot="MR0"/>
+<element name="E$6" library="SparkFun-Aesthetics" package="FIDUCIAL-1X2" value="" x="127.635" y="132.588" rot="MR180"/>
 </elements>
 <signals>
 <signal name="UART_TX">
