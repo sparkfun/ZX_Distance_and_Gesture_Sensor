@@ -1,4 +1,47 @@
-ZX_Distance_and Gesture_Sensor
-==============================
+SparkFun ZX Distance and Gesture Sensor
+========================================
 
-Infrared ZX distance and gesture sensor based on a collaboration with [XYZ Interactive Technologies, Inc.](http://www.gesturesense.com/xyz/).
+![SparkFun ZX Distance and Gesture Sensor](https://cdn.sparkfun.com//assets/parts/9/5/8/5/12780-01.jpg)
+
+[*SparkFun ZX Distance and Gesture Sensor (SEN-12780)*](https://www.sparkfun.com/products/12780)
+
+Infrared sensor capable of determining an object's distance from the sensor and its relative position between the IR LEDs. The sensor is capable of determining a 2-dimensional location of an object as well as determining several basic gestures.
+
+Repository Contents
+-------------------
+
+* **/Hardware** - Eagle design files (.brd, .sch)
+* **/Libraries** - Libraries for use with the ZX Distance and Gesture Sensor
+* **/Production** - Production panel files (.brd)
+
+Documentation
+--------------
+
+* **[Library](https://github.com/sparkfun/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library)** - Arduino library for the ZX Distance and Gesture Sensor.
+* **[Hookup Guide](https://learn.sparkfun.com/tutorials/zx-distance-and-gesture-sensor-hookup-guide)** - Basic hookup guide for the ZX Distance and Gesture Sensor.
+* **[SparkFun Fritzing repo](https://github.com/sparkfun/Fritzing_Parts)** - Fritzing diagrams for SparkFun products.
+
+Product Versions
+----------------
+
+* [SEN-12780](https://www.sparkfun.com/products/12780)- ZX Distance and Gesture Sensor
+
+Version History
+---------------
+
+* [H_1.0_L_1.0.0](https://github.com/sparkfun/ZX_Distance_and_Gesture_Sensor/tree/H_1.0_L_1.0.) - Initial release
+
+License Information
+-------------------
+
+This product is _**open source**_! 
+
+Please review the LICENSE.md file for license information. 
+
+If you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.
+
+Distributed as-is; no warranty is given.
+
+- Your friends at SparkFun.
+
+_This is a collaboration with [XYZ Interactive](http://www.gesturesense.com/xyz)_
