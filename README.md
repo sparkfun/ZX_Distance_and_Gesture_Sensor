@@ -29,7 +29,7 @@ Product Versions
 Version History
 ---------------
 
-* [H_1.0_L_1.0.0](https://github.com/sparkfun/ZX_Distance_and_Gesture_Sensor/tree/H_1.0_L_1.0.) - Initial release
+* [H_1.0_L_1.0.0](https://github.com/sparkfun/ZX_Distance_and_Gesture_Sensor/tree/H_1.0_L_1.0.0) - Initial release
 
 License Information
 -------------------
