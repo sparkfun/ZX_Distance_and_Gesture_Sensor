@@ -1,5 +1,5 @@
-SparkFun MicroView Arduino Library
-========================================
+SparkFun ZX Distance and Gesture Sensor Arduino Library
+=======================================================
 
 ![ZX Distance and Gesture Sensor](https://cdn.sparkfun.com//assets/parts/9/5/8/5/12780-01.jpg)
 
@@ -35,6 +35,7 @@ Known Bugs
 Version History
 ---------------
 
+* [V_1.0.2](https://github.com/sparkfun/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library/tree/V_1.0.2) - Fixed library name
 * [V_1.0.1](https://github.com/sparkfun/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library/tree/V_1.0.1) - Fixed typo in library properties: "Sensor" to "Sensors"
 * [V_1.0.0](https://github.com/sparkfun/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library/tree/V_1.0.0) - Initial release
 
