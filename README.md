@@ -3,7 +3,7 @@
 * *[Comments Here on GitHub](https://github.com/sparkfun/ZX_Distance_and_Gesture_Sensor/issues)*
 * *[IRC Channel](https://www.sparkfun.com/news/263)*
 
-There is another version available with the surface mount ICs [ ZX Distance and Gesture Sensor SMD [SEN-13162](https://www.sparkfun.com/products/13162) ] so the associated Arduino Library will be kept open => [SparkFun_ZX_distance_and_Gesture_Sensor_Arduino_Library](https://github.com/sparkfun/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library). 
+There is another version available with the surface mount ICs [ ZX Distance and Gesture Sensor SMD - [SEN-13162](https://www.sparkfun.com/products/13162) ] so the associated Arduino Library will be kept open => [SparkFun_ZX_distance_and_Gesture_Sensor_Arduino_Library](https://github.com/sparkfun/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library). 
 
 SparkFun ZX Distance and Gesture Sensor
 ========================================
